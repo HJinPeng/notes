@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>闭包 | 三年磨一剑</title>
+    <meta name="generator" content="VuePress 1.9.10">
+    <link rel="icon" href="/assets/img/logo.ico">
+    <meta name="description" content="HTML | CSS | JavaScript | TypeScript | Vue | React | Node | 计算机网络 | 数据结构 | 算法 | 部署 | 开源">
+    
+    <link rel="preload" href="/assets/css/0.styles.af94bc93.css" as="style"><link rel="preload" href="/assets/js/app.724bcf01.js" as="script"><link rel="preload" href="/assets/js/2.88565461.js" as="script"><link rel="preload" href="/assets/js/1.cec726da.js" as="script"><link rel="preload" href="/assets/js/37.dbc12243.js" as="script"><link rel="prefetch" href="/assets/js/10.9bded802.js"><link rel="prefetch" href="/assets/js/11.7b65cdff.js"><link rel="prefetch" href="/assets/js/12.34e24bbb.js"><link rel="prefetch" href="/assets/js/13.e1333014.js"><link rel="prefetch" href="/assets/js/14.45954012.js"><link rel="prefetch" href="/assets/js/15.812c8c4b.js"><link rel="prefetch" href="/assets/js/16.bfa5fee6.js"><link rel="prefetch" href="/assets/js/17.cae7f054.js"><link rel="prefetch" href="/assets/js/18.b434740f.js"><link rel="prefetch" href="/assets/js/19.72c6aefa.js"><link rel="prefetch" href="/assets/js/20.ddd8ec2a.js"><link rel="prefetch" href="/assets/js/21.694c42c9.js"><link rel="prefetch" href="/assets/js/22.1566a5df.js"><link rel="prefetch" href="/assets/js/23.9a7d29fd.js"><link rel="prefetch" href="/assets/js/24.fa12c06f.js"><link rel="prefetch" href="/assets/js/25.6cd7aaea.js"><link rel="prefetch" href="/assets/js/26.2b3ba739.js"><link rel="prefetch" href="/assets/js/27.84103b55.js"><link rel="prefetch" href="/assets/js/28.012979aa.js"><link rel="prefetch" href="/assets/js/29.d4de359a.js"><link rel="prefetch" href="/assets/js/3.355dde7f.js"><link rel="prefetch" href="/assets/js/30.662a7349.js"><link rel="prefetch" href="/assets/js/31.0c1e0a0c.js"><link rel="prefetch" href="/assets/js/32.c9bc5628.js"><link rel="prefetch" href="/assets/js/33.4b6ae8af.js"><link rel="prefetch" href="/assets/js/34.cdbfbab4.js"><link rel="prefetch" href="/assets/js/35.a5ae1824.js"><link rel="prefetch" href="/assets/js/36.1d119a55.js"><link rel="prefetch" href="/assets/js/38.bcf3b246.js"><link rel="prefetch" href="/assets/js/39.16e710d7.js"><link rel="prefetch" href="/assets/js/4.6aaf9938.js"><link rel="prefetch" href="/assets/js/40.1f3a0ae6.js"><link rel="prefetch" href="/assets/js/41.c3b9872d.js"><link rel="prefetch" href="/assets/js/42.4e4e9ff7.js"><link rel="prefetch" href="/assets/js/43.c632d53c.js"><link rel="prefetch" href="/assets/js/44.5a568ba0.js"><link rel="prefetch" href="/assets/js/45.d6de7ded.js"><link rel="prefetch" href="/assets/js/46.e7694f3e.js"><link rel="prefetch" href="/assets/js/47.a58afd05.js"><link rel="prefetch" href="/assets/js/48.cbac4699.js"><link rel="prefetch" href="/assets/js/49.ba6bf4e3.js"><link rel="prefetch" href="/assets/js/5.5d1b78c1.js"><link rel="prefetch" href="/assets/js/50.21fb1229.js"><link rel="prefetch" href="/assets/js/51.9e216b4b.js"><link rel="prefetch" href="/assets/js/52.4015594a.js"><link rel="prefetch" href="/assets/js/53.7c7b1599.js"><link rel="prefetch" href="/assets/js/54.79919b0f.js"><link rel="prefetch" href="/assets/js/55.0aaa067a.js"><link rel="prefetch" href="/assets/js/56.6fa6df1e.js"><link rel="prefetch" href="/assets/js/6.1c2b1397.js"><link rel="prefetch" href="/assets/js/7.8692ed58.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.5a4296f1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.af94bc93.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/img/logo.png" alt="三年磨一剑" class="logo"> <span class="site-name can-hide">三年磨一剑</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Frontend" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="Frontend" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/js/execution-context.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/ts/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li></ul></div></div><div class="nav-item"><a href="/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  计算机网络
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="DataStructure" class="dropdown-title"><span class="title">数据结构</span> <span class="arrow down"></span></button> <button type="button" aria-label="DataStructure" class="mobile-dropdown-title"><span class="title">数据结构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  栈
+</a></li><li class="dropdown-item"><!----> <a href="/css/" class="nav-link">
+  队列
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link router-link-active">
+  链表
+</a></li><li class="dropdown-item"><!----> <a href="/ts/" class="nav-link">
+  树
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  图
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Osther" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="Osther" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/browser/process-thread.html" class="nav-link">
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/open-source/" class="nav-link">
+  开源
+</a></li></ul></div></div> <a href="https://github.com/vuejs/vuepress" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Frontend" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="Frontend" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  HTML
+</a></li><li class="dropdown-item"><!----> <a href="/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/js/execution-context.html" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/ts/" class="nav-link">
+  TypeScript
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Vue
+</a></li></ul></div></div><div class="nav-item"><a href="/node/" class="nav-link">
+  Node
+</a></div><div class="nav-item"><a href="/vue/" class="nav-link">
+  计算机网络
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="DataStructure" class="dropdown-title"><span class="title">数据结构</span> <span class="arrow down"></span></button> <button type="button" aria-label="DataStructure" class="mobile-dropdown-title"><span class="title">数据结构</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/html/" class="nav-link">
+  栈
+</a></li><li class="dropdown-item"><!----> <a href="/css/" class="nav-link">
+  队列
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link router-link-active">
+  链表
+</a></li><li class="dropdown-item"><!----> <a href="/ts/" class="nav-link">
+  树
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  图
+</a></li></ul></div></div><div class="nav-item"><a href="/algorithm/" class="nav-link">
+  算法
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Osther" class="dropdown-title"><span class="title">其他</span> <span class="arrow down"></span></button> <button type="button" aria-label="Osther" class="mobile-dropdown-title"><span class="title">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/browser/process-thread.html" class="nav-link">
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/deploy/" class="nav-link">
+  部署
+</a></li><li class="dropdown-item"><!----> <a href="/open-source/" class="nav-link">
+  开源
+</a></li></ul></div></div> <a href="https://github.com/vuejs/vuepress" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js/execution-context.html" class="sidebar-link">执行上下文</a></li><li><a href="/js/call-apply-bind.html" class="sidebar-link">改变执行上下文</a></li><li><a href="/js/closure.html" aria-current="page" class="active sidebar-link">闭包</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/js/closure.html#定义" class="sidebar-link">定义</a></li><li class="sidebar-sub-header"><a href="/js/closure.html#优缺点" class="sidebar-link">优缺点</a></li><li class="sidebar-sub-header"><a href="/js/closure.html#垃圾回收" class="sidebar-link">垃圾回收</a></li></ul></li><li><a href="/js/scope-chain.html" class="sidebar-link">作用域&amp;作用域链</a></li><li><a href="/js/prototype-chain.html" class="sidebar-link">原型&amp;原型链</a></li><li><a href="/js/extend.html" class="sidebar-link">继承</a></li><li><a href="/js/event-loop.html" class="sidebar-link">事件循环机制</a></li><li><a href="/js/module.html" class="sidebar-link">模块化</a></li><li><a href="/js/variable.html" class="sidebar-link">变量数据类型、存储、判断</a></li><li><a href="/js/float-add.html" class="sidebar-link">浮点数相加问题</a></li><li><a href="/js/boxing-unboxing.html" class="sidebar-link">装箱 &amp; 拆箱</a></li><li><a href="/js/tail-recursion.html" class="sidebar-link">尾递归</a></li><li><a href="/js/array-method.html" class="sidebar-link">数组方法</a></li><li><a href="/js/array-sort.html" class="sidebar-link">数组的sort()</a></li><li><a href="/js/array-like.html" class="sidebar-link">类数组</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>手写</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/js/write-js/debounce.html" class="sidebar-link">防抖</a></li><li><a href="/js/write-js/throttle.html" class="sidebar-link">节流</a></li><li><a href="/js/write-js/clone.html" class="sidebar-link">深拷贝 &amp; 浅拷贝</a></li><li><a href="/js/write-js/object-create.html" class="sidebar-link">手写Object.create</a></li><li><a href="/js/write-js/new.html" class="sidebar-link">手写new</a></li><li><a href="/js/write-js/instanceof.html" class="sidebar-link">手写instanceof</a></li><li><a href="/js/write-js/reduce.html" class="sidebar-link">数组的reduce</a></li><li><a href="/js/write-js/isArray.html" class="sidebar-link">数组的isArray</a></li><li><a href="/js/write-js/array-flat.html" class="sidebar-link">数组扁平化</a></li><li><a href="/js/write-js/array-unique.html" class="sidebar-link">数组去重</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="闭包"><a href="#闭包" class="header-anchor">#</a> 闭包</h1> <h2 id="定义"><a href="#定义" class="header-anchor">#</a> 定义</h2> <p>如果一个函数访问了此函数的父级及父级以上的作用域变量（自由变量），那么这个函数就是一个闭包。<br>
+闭包会创建一个包含外部函数作用域变量的环境，并将其保存在内存中，这意味着当外部函数执行完毕出栈后，闭包仍然可以访问外部函数的变量。</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">addTimes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  	<span class="token keyword">let</span> times <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+	<span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		times<span class="token operator">++</span><span class="token punctuation">;</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'次数：'</span><span class="token punctuation">,</span>times<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> add<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// addTimes 函数执行完毕，外部作用域链仍然存在，即times变量仍然在内存中</span>
+<span class="token keyword">const</span> add <span class="token operator">=</span> <span class="token function">addTimes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 次数： 1</span>
+<span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 次数： 2</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><h2 id="优缺点"><a href="#优缺点" class="header-anchor">#</a> 优缺点</h2> <p>优点：</p> <ol><li>缓存变量，可用于实现计数器等</li> <li>私有化变量，可用于实现模块化等</li></ol> <p>缺点：</p> <ol><li>内存泄漏，变量常驻内存无法被GC（垃圾回收）回收</li></ol> <h2 id="垃圾回收"><a href="#垃圾回收" class="header-anchor">#</a> 垃圾回收</h2> <ol><li>引用计数法：chrome的V8引擎没有使用该方法，这种方式无法解决A和B循环引用问题</li> <li>可访问性分析法：V8使用了该方法。从一个GC Roots对象出发（window对象，dom节点集合等）, 能遍历到的认为是可访问的，为活动对象。不能遍历到的则认为不可访问，垃圾回收。</li></ol></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/vuejs/vuepress/edit/master/js/closure.md" target="_blank" rel="noopener noreferrer">帮助我们改善此页面！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/js/call-apply-bind.html" class="prev">
+        改变执行上下文
+      </a></span> <span class="next"><a href="/js/scope-chain.html">
+        作用域&amp;作用域链
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.724bcf01.js" defer></script><script src="/assets/js/2.88565461.js" defer></script><script src="/assets/js/1.cec726da.js" defer></script><script src="/assets/js/37.dbc12243.js" defer></script>
+  </body>
+</html>
