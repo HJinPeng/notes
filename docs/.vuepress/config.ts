@@ -1,6 +1,7 @@
 import { defineConfig } from "vuepress/config";
 
 export default defineConfig({
+  dest: './dist',
   title: "三年磨一剑",
   description:
     "HTML | CSS | JavaScript | TypeScript | Vue | React | Node | 计算机网络 | 数据结构 | 算法 | 部署 | 开源",

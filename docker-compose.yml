@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    image: ${IMAGE} # 引用官网 nginx 镜像
+    container_name: ${PROJECT}
+    ports:
+      - 8080:80 # 宿主机可以用 127.0.0.1:8080 即可连接容器
+
