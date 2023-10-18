@@ -12,8 +12,8 @@ env:
   PROJECT: notes
   DOCKER_REGISTRY: registry.cn-heyuan.aliyuncs.com
   DOCKER_IMAGE: jinpengh/notes
-  DOCKER_TAG: ${{ github.ref_name }}
-  IMAGE: registry.cn-heyuan.aliyuncs.com/jinpengh/notes:${{ github.ref_name }}
+  DOCKER_TAG: ${{ github.ref_name }}-${{ github.sha }}
+  IMAGE: registry.cn-heyuan.aliyuncs.com/jinpengh/notes:${{ github.ref_name }}-${{ github.sha }}
 
 # 作业
 jobs:
