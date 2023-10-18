@@ -2,7 +2,7 @@
 FROM nginx
 
 # 将 dist 文件夹中的内容复制到 /use/share/nginx/html/ 这个目录下
-COPY docs/.vuepress/dist /usr/share/nginx/html/
+COPY /dist /usr/share/nginx/html/
 
 # 将 nginx 配置文件放在 /etc/nginx/nginx.conf中
 COPY nginx.conf /etc/nginx/nginx.conf

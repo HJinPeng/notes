@@ -25,7 +25,7 @@ jobs:
     # job的一系列任务，每一个 step 或者是执行一个 action，或者是执行一个命令
     steps:
       - name: Checkout # 定义step的名字，方便日志排查
-        uses: actions/checkout@v4 # uses 表示该步骤使用一个 action 。斜线前面的 'actions' 表示这是官方的action
+        uses: actions/checkout@v3 # uses 表示该步骤使用一个 action 。斜线前面的 'actions' 表示这是官方的action
 
       - name: Node
         uses: actions/setup-node@v3
@@ -43,7 +43,6 @@ jobs:
           registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
-          serviceName: ${{ env.PROJECT }}
           dockerfile: Dockerfile
           pushImage: true
 
