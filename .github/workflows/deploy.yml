@@ -38,11 +38,12 @@ jobs:
       - name: Docker
         uses: 1-1is0/docker-compose-build-push@publish
         with:
-          registry: ${{ env.DOCKER_REGISTRY }}
           image: ${{ env.DOCKER_IMAGE }}
           tags: ${{ env.DOCKER_TAG }}
+          registry: ${{ env.DOCKER_REGISTRY }}
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
+          serviceName: ${{ env.PROJECT }}
           dockerfile: Dockerfile
           pushImage: true
 
