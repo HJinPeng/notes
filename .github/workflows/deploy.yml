@@ -10,7 +10,10 @@ on:
 # 环境变量
 env:
   PROJECT: notes
-
+  DOCKER_REGISTRY: registry.cn-heyuan.aliyuncs.com
+  DOCKER_IMAGE: jinpengh/notes
+  DOCKER_TAG: ${{ github.ref_name }}
+  IMAGE: registry.cn-heyuan.aliyuncs.com/jinpengh/notes:${{ github.ref_name }}
 
 # 作业
 jobs:
@@ -18,10 +21,6 @@ jobs:
   build:
     # GitHub 托管的 linux 运行器
     runs-on: ubuntu-latest
-    env:
-      DOCKER_REGISTRY: registry.cn-heyuan.aliyuncs.com
-      DOCKER_IMAGE: jinpengh/${{ env.PROJECT }}
-      DOCKER_TAG: ${{ github.ref_name }}
       
     # job的一系列任务，每一个 step 或者是执行一个 action，或者是执行一个命令
     steps:
@@ -49,8 +48,6 @@ jobs:
 
       - name: Deploy
         uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-        env:
-          IMAGE: ${{ env.DOCKER_REGISTRY }}${{ env.DOCKER_IMAGE }}:${{ env.DOCKER_TAG }}
         with:
           host: ${{ secrets.SERVER_HOST }}
           user: ${{ secrets.SERVER_USER }}
@@ -66,5 +63,5 @@ jobs:
           # 完成拷贝后在部署服务器执行的命令：进入项目目录，安装生产依赖，并使用 pm2 管理
           last_ssh: |
             cd ./docker-compose/${{ env.PROJECT }}
-            PROJECT=${{ env.PROJECT}} IMAGE=${{ env.PROJECT }} docker-compose up -d
+            PROJECT=${{ env.PROJECT}} IMAGE=${{ env.IMAGE }} docker-compose up -d
 
