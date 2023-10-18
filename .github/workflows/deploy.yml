@@ -13,7 +13,6 @@ env:
   DOCKER_REGISTRY: registry.cn-heyuan.aliyuncs.com
   DOCKER_IMAGE: jinpengh/notes
   DOCKER_TAG: ${{ github.ref_name }}-${{ github.sha }}
-
   IMAGE: registry.cn-heyuan.aliyuncs.com/jinpengh/notes:${{ github.ref_name }}-${{ github.sha }}
 
 # 作业
@@ -64,6 +63,5 @@ jobs:
           # 完成拷贝后在部署服务器执行的命令：进入项目目录，安装生产依赖，并使用 pm2 管理
           last_ssh: |
             cd ./docker-compose/${{ env.PROJECT }}
-            docker image rm $(docker image ls -q ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE }})
             PROJECT=${{ env.PROJECT}} IMAGE=${{ env.IMAGE }} docker-compose up -d
 
