@@ -37,9 +37,10 @@ export default defineConfig({
       { text: "算法", link: "/algorithm/" },
       {
         text: "其他",
-        ariaLabel: "Osther",
+        ariaLabel: "Other",
         items: [
           { text: "浏览器", link: "/browser/process-thread" },
+          { text: "Git", link: "/git/" },
           { text: "部署", link: "/deploy/" },
           { text: "开源", link: "/open-source/" },
         ],
@@ -263,6 +264,12 @@ export default defineConfig({
               path: "async-defer"
             }
           ],
+        },
+      ],
+      "/git/": [
+        {
+          title: "Git", // 必要的
+          path: "/git/", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
         },
       ],
       "/deploy/": [
