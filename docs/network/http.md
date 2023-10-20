@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # HTTP
 
 ## HTTP/1.1
