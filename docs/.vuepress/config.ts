@@ -22,7 +22,7 @@ export default defineConfig({
         ],
       },
       { text: "Node", link: "/node/" },
-      { text: "计算机网络", link: "/vue/" },
+      { text: "计算机网络", link: "/network/http" },
       {
         text: "数据结构",
         ariaLabel: "DataStructure",
@@ -199,6 +199,14 @@ export default defineConfig({
         {
           title: "计算机网络",
           path: "/network/",
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1, // 可选的, 默认值是 1
+          children: [
+            {
+              title: "HTTP",
+              path: "http",
+            },
+          ]
         },
       ],
       "/data-structure/": [
