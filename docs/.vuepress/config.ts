@@ -19,6 +19,8 @@ export default defineConfig({
           { text: "JavaScript", link: "/js/execution-context" },
           { text: "TypeScript", link: "/ts/" },
           { text: "Vue", link: "/vue/" },
+          { text: "tsup", link: "/tsup/" },
+          { text: "Rollup", link: "/rollup/" },
         ],
       },
       { text: "Node", link: "/node/" },
@@ -187,6 +189,18 @@ export default defineConfig({
         {
           title: "Vue",
           path: "/vue/",
+        },
+      ],
+      "/tsup/": [
+        {
+          title: "tsup",
+          path: "/tsup/",
+        },
+      ],
+      "/rollup/": [
+        {
+          title: "Rollup",
+          path: "/rollup/",
         },
       ],
       "/node/": [
