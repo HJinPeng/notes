@@ -23,7 +23,13 @@ export default defineConfig({
           { text: "Rollup", link: "/rollup/" },
         ],
       },
-      { text: "Node", link: "/node/" },
+      { 
+        text: "Node",
+        ariaLabel: "Node",
+        items: [
+          { text: "Koa", link: "/koa/" }
+        ],
+      },
       { text: "计算机网络", link: "/network/http" },
       {
         text: "数据结构",
@@ -45,6 +51,7 @@ export default defineConfig({
           { text: "Git", link: "/git/" },
           { text: "部署", link: "/deploy/" },
           { text: "开源", link: "/open-source/" },
+          { text: "疑难杂症", link: "/strange/mac-m1"},
         ],
       },
     ],
@@ -203,10 +210,18 @@ export default defineConfig({
           path: "/rollup/",
         },
       ],
-      "/node/": [
+      "/koa/": [
         {
-          title: "Node",
-          path: "/node/",
+          title: "Koa",
+          path: "/koa/",
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1, // 可选的, 默认值是 1
+          children: [
+            {
+              title: '路由',
+              path: 'router',
+            }
+          ]
         },
       ],
       "/network/": [
@@ -304,6 +319,20 @@ export default defineConfig({
         {
           title: "开源",
           path: "/open-source/",
+        },
+      ],
+      "/strange/": [
+        {
+          title: "疑难杂症", // 必要的
+          path: "", // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+          collapsable: false, // 可选的, 默认值是 true,
+          sidebarDepth: 1, // 可选的, 默认值是 1
+          children: [
+            {
+              title: "Mac(m1)",
+              path: "mac-m1"
+            }
+          ]
         },
       ],
     },
