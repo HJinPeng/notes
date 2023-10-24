@@ -1,3 +1,7 @@
+---
+sidebar: auto
+---
+
 # Git
 
 ## 代理设置
@@ -21,4 +25,22 @@ git config --global --unset https.proxy
 ```bash
 git config --global --get http.proxy
 git config --global --get https.proxy
+```
+
+:::tip
+在某个项目中设置代理，去掉 `--global`
+:::
+
+## OpenSSL SSL_connect 443
+
+报错提示：`fatal: unable to access 'https://github.com*****': OpenSSL SSL_connect: Connection was reset in connection to github.com:443 `  
+
+解决：
+
+```bash
+# 全局
+git config --global http.sslVerify "false"
+
+# 某项目
+git config http.sslVerify "false"
 ```
